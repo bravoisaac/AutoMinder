@@ -53,4 +53,17 @@
   <ion-text class="ion-text-center">
     <h5>MI AUTO</h5>
   </ion-text>
+
+  <div class="my-button-test">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+  <ion-button color="primary" type="submit" (click)="getPrueba()" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
+    Probar firebase
+  </ion-button>
+    </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
 </ion-content>
