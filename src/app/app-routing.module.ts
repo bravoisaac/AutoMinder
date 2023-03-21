@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SendEmailComponent } from './auth/send-email/send-email.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
     path: 'list-replacement',
     loadChildren: () => import('./pages/list-replacement/list-replacement.module').then( m => m.ListReplacementPageModule)
   },
+  {
+    path:'verification-email',
+    component: SendEmailComponent
+  }
 ];
 @NgModule({
   imports: [
