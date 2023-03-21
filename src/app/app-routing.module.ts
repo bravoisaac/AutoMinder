@@ -1,45 +1,69 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  canActivate,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['tabs/tab1']);
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'welcome',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'welcome',
-    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+    loadChildren: () =>
+      import('./pages/welcome/welcome.module').then((m) => m.WelcomePageModule),
   },
-    {
+  {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () =>
+      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
+  },
+  {
+    path: 'tab1',
+    loadChildren: () =>
+      import('./tab1/tab1-routing.module').then((m) => m.Tab1PageRoutingModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'register',
-    loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () =>
+      import('./auth/register/register.module').then(
+        (m) => m.RegisterPageModule
+      ),
   },
   {
     path: 'reset',
-    loadChildren: () => import('./auth/reset/reset.module').then( m => m.ResetPageModule)
+    loadChildren: () =>
+      import('./auth/reset/reset.module').then((m) => m.ResetPageModule),
   },
   {
     path: 'reset2',
-    loadChildren: () => import('./auth/reset2/reset2.module').then( m => m.Reset2PageModule)
-
+    loadChildren: () =>
+      import('./auth/reset2/reset2.module').then((m) => m.Reset2PageModule),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfilePageModule),
   },
   {
     path: 'list-replacement',
-    loadChildren: () => import('./pages/list-replacement/list-replacement.module').then( m => m.ListReplacementPageModule)
+    loadChildren: () =>
+      import('./pages/list-replacement/list-replacement.module').then(
+        (m) => m.ListReplacementPageModule
+      ),
   },
   {
     path:'verification-email',
@@ -48,8 +72,8 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

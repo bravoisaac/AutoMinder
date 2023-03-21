@@ -1,38 +1,55 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-text color="primary" class="ion-text-center">
-    <h4>Cambiar contraseña</h4>
-    <h5>MI AUTO</h5>
-  </ion-text>
-    <ion-text class="ion-text-center">
-      <p>Escriba su nueva contraseña y confirme el cambio a continuacion para actualizar sus credenciales de seguridad</p>
-    </ion-text>
-  <form #frm="ngForm">
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input required type="password" name="pass"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Repetir contraseña</ion-label>
-      <ion-input required type="password" name="pass"   clearInput></ion-input>
-    </ion-item>
-    <div class="my-button-reset2">
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="12">
-    <ion-button color="primary" routerLink="/login" type="submit" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
-      Ir a iniciar sesion
-    </ion-button>
-    </ion-col>
-    </ion-row>
-    </ion-grid>
-    </div>
-  </form>
-  <ion-text class="ion-text-center">
-    <h5>MI AUTO</h5>
-  </ion-text>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <h4>Cambiar contraseña</h4>
+      </ion-card-title>
+      <ion-card-subtitle class="ion-text-center" color="primary">
+        <h5>AutoMinder</h5>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text class="ion-text-center">
+        <p>Escriba su nueva contraseña y confirme el cambio a continuacion para actualizar sus credenciales de seguridad
+        </p>
+      </ion-text>
+      <form #frm="ngForm">
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input required type="password" name="pass" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Repetir contraseña</ion-label>
+          <ion-input required type="password" name="pass" clearInput></ion-input>
+        </ion-item>
+        <div class="my-button-reset2">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                <ion-button color="primary" routerLink="/login" type="submit" [disabled]="frm.invalid"
+                  class="ion-text-center ion-text-capitalize">
+                  Ir a iniciar sesion
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar class="ion-text-center">
+    <h5>AutoMinder</h5>
+  </ion-toolbar>
+</ion-footer>

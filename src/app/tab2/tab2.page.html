@@ -7,5 +7,86 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="ion-padding ion-margin">
+    <ion-card-header>
+      <ion-card-title class="custom">Datos vehiculo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Marca:</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Modelo:</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Año:</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Número de chasis:</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-padding ion-margin">
+    <ion-card-header>
+      <ion-card-title>Datos del usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombre</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Correo electronico</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" class="ion-padding">
+        Cambiar contraseña
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-padding ion-margin">
+    <ion-card-header>
+      <ion-card-title>Documentos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-list>
+              <ion-item>
+                <ion-label>Circulación</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Revision</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Seguro</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col size="6">
+            <ion-list class="ion-margin">
+              <ion-item>
+                <ion-button expand="block">
+                  Subir foto
+                </ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-button expand="block">
+                  Subir foto
+                </ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-button expand="block">
+                  Subir foto
+                </ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

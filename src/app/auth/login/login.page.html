@@ -1,53 +1,66 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-icon name="arrow-back-outline" routerLink="/welcome" size="large" class="ion-padding"></ion-icon>
+      <ion-back-button>
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-text color="tertiary" class="ion-text-center ion-text-capitalize">
-    <h1>iniciar sesión</h1>
-    <h2>MI AUTO</h2>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center ion-text-capitalize">
+        <h1>iniciar sesión</h1>
+      </ion-card-title>
+      <ion-card-subtitle class="ion-text-center ion-text-capitalize" color="primary">
+        <h4>AutoMinder</h4>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form #form="ngForm">
+        <ion-item fill="solid">
+          <ion-label position="floating">Correo electronico</ion-label>
+          <ion-input required type="email" name="mail" required clearInput inputmode="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input required type="password" name="password" clearInput required></ion-input>
+        </ion-item>
+        <div class="body">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12" class="ion-padding-top">
+                <ion-button color="primary" type="submit" class="ion-text-center ion-text-capitalize" expand="full"
+                  [disabled]="form.invalid" routerLink="/tabs/tab1">
+                  Iniciar sesión
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <ion-text class="ion-text-center" routerLink="/register" color="primary">
+    <p>¿No tienes cuenta?</p>
   </ion-text>
-  <form #frm="ngForm" >
-    <ion-item>
-      <ion-label position="floating">Correo electronico</ion-label>
-      <ion-input required type="email" name="mail"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input required type="password" name="password"  clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-checkbox slot="start"></ion-checkbox>
-      <ion-label>Recuerdame</ion-label>
-    </ion-item>
-    <div class="body">
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="12">
-    <ion-button color="primary" type="submit" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
-      Login
-    </ion-button>
-    </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </form>
-
   <ion-text class="ion-text-center" routerLink="/reset" color="primary">
     <p>¿Has olvidado tu contraseña?</p>
   </ion-text>
-  <ion-text class="ion-text-center" color="primary">
-    <h1>OR</h1>
+  <ion-text class="ion-text-center ion-padding" color="primary">
+    <h4>OR</h4>
   </ion-text>
   <ion-buttons class="my-icons">
     <ion-icon name="logo-twitter"></ion-icon>
     <ion-icon name="logo-facebook"></ion-icon>
   </ion-buttons>
-  <ion-text class="ion-text-center">
-    <h5>MI AUTO</h5>
-  </ion-text>
 </ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar>
+    <ion-text class="ion-text-center">
+      <h5>AutoMinder</h5>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>

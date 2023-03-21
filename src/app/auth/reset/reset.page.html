@@ -1,41 +1,54 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-icon name="arrow-back-outline" routerLink="/login" size="large" class="ion-padding"></ion-icon>
+      <ion-back-button>
+        <ion-icon name="arrow-back-outline" class="ion-padding"></ion-icon>
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-text color="primary" class="ion-text-center">
-    <h4>Restablecer contraseña</h4>
-    <h5>MI AUTO</h5>
-  </ion-text>
-    <ion-text class="ion-text-center">
-      <p>Para poder cambiar la contraseña es necesario enviar un correo electronico para verificar que eres tu</p>
-    </ion-text>
-  <form #frm="ngForm">
-    <ion-item>
-      <ion-label position="floating">Correo electronico</ion-label>
-      <ion-input required type="email" name="mail"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Repetir correo electronico</ion-label>
-      <ion-input required type="email" name="mail"   clearInput></ion-input>
-    </ion-item>
-    <div class="my-button-reset">
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="12">
-    <ion-button color="primary" type="submit" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
-      Enviar correo
-    </ion-button>
-  </ion-col>
-    </ion-row>
-    </ion-grid>
-    </div>
-  </form>
-  <ion-text class="ion-text-center">
-    <h5>MI AUTO</h5>
-  </ion-text>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <h4>Restablecer contraseña</h4>
+      </ion-card-title>
+      <ion-card-subtitle class="ion-text-center " color="primary">
+        <h5>AutoMinder</h5>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text class="ion-text-center">
+        <p>Para poder cambiar la contraseña es necesario enviar un correo electronico para verificar que eres tu</p>
+      </ion-text>
+      <form #frm="ngForm">
+        <ion-item>
+          <ion-label position="floating">Correo electronico</ion-label>
+          <ion-input required type="email" name="mail" clearInput inputmode="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Repetir correo electronico</ion-label>
+          <ion-input required type="email" name="mail" clearInput></ion-input>
+        </ion-item>
+        <div class="my-button-reset">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="12">
+                <ion-button color="primary" type="submit" [disabled]="frm.invalid"
+                  class="ion-text-center ion-text-capitalize" routerLink="/reset2">
+                  Enviar correo
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">AutoMinder</ion-title>
+  </ion-toolbar>
+</ion-footer>

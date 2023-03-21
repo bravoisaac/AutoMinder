@@ -1,69 +1,74 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-icon name="arrow-back-outline" routerLink="/welcome" size="large" class="ion-padding"></ion-icon>
+      <ion-back-button>
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-text color="primary" class="ion-text-center">
-    <h4>REGISTRATE</h4>
-    <h5>MI AUTO</h5>
-  </ion-text>
-  <form #frm="ngForm">
-    <ion-item>
-      <ion-label position="floating">Usuario</ion-label>
-      <ion-input required type="text" name="usrname"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Correo electronico</ion-label>
-      <ion-input required type="email" name="mail"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input required type="password" name="pass"   clearInput></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Repetir contraseña</ion-label>
-      <ion-input required type="password" name="pass"   clearInput></ion-input>
-    </ion-item>
-    <ion-text color="primary" class="ion-text-center">
+<ion-card>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">
+      <h4>REGISTRATE</h4>
+    </ion-card-title>
+    <ion-card-subtitle color="primary" class="ion-text-center">
+      <h5>AutoMinder</h5>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="userCredentials" (ngSubmit)="registerNewUser()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Correo electronico</ion-label>
+          <ion-input required type="email" clearInput inputmode="email" name="userEmail"
+            formControlName="userEmail"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input required type="password" clearInput formControlName="userPassword"></ion-input>
+        </ion-item>
+        <ion-note color="danger"
+          *ngIf="userCredentials.controls.userPassword.errors?.minlength && (userCredentials.touched || userCredentials.dirty)">
+          *La contraseña tiene que tener al menos 8 caracteres.</ion-note> <br />
+        <ion-note color="danger"
+          *ngIf="userCredentials.controls.userEmail.errors?.required && (userCredentials.touched || userCredentials.dirty)">*
+          El email es obligatorio </ion-note>
+        <ion-button expand="full" type="submit" [disabled]="!userCredentials.valid">
+          Registrarse
+        </ion-button>
+      </ion-list>
+    </form>
+    <ion-text color="primary" class="ion-text-center ion-padding">
       <h4>Or</h4>
     </ion-text>
     <ion-buttons class="my-icons">
       <ion-icon name="logo-twitter"></ion-icon>
       <ion-icon name="logo-facebook"></ion-icon>
     </ion-buttons>
-    <div class="my-button-register">
-      <ion-grid fixed>
-        <ion-row>
-          <ion-col size="12">
-    <ion-button color="primary" type="submit" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
-      Registrar datos
-    </ion-button>
-      </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </form>
-  <ion-text class="ion-text-center" routerLink="/login">
+  </ion-card-content>
+</ion-card>
+<ion-content>
+  <ion-text class="ion-text-center" routerLink="/login" color="primary">
     <p>¿Ya tienes cuenta? haz click aqui</p>
   </ion-text>
-  <ion-text class="ion-text-center">
-    <h5>MI AUTO</h5>
-  </ion-text>
-
-  <div class="my-button-test">
+  <div class=" my-button-test">
     <ion-grid fixed>
       <ion-row>
         <ion-col size="12">
-  <ion-button color="primary" type="submit" (click)="getPrueba()" [disabled]="frm.invalid" class="ion-text-center ion-text-capitalize">
-    Probar firebase
-  </ion-button>
-    </ion-col>
+          <ion-button color="primary" type="submit" (click)="getPrueba()" class="ion-text-center ion-text-capitalize">
+            Probar firebase
+          </ion-button>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-text class="ion-text-center">
+      <h5>AutoMinder</h5>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>
