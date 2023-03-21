@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SendEmailComponent } from './auth/send-email/send-email.component';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
@@ -64,6 +65,10 @@ const routes: Routes = [
         (m) => m.ListReplacementPageModule
       ),
   },
+  {
+    path:'verification-email',
+    component: SendEmailComponent
+  }
 ];
 @NgModule({
   imports: [
