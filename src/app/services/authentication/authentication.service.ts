@@ -5,12 +5,14 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth, public afAuth: AngularFireAuth) {}
 
   // async register({ email, password }) {
   //   try {
