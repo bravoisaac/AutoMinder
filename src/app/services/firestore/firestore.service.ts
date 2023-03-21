@@ -3,7 +3,6 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +20,11 @@ export class FirestoreService {
     this.firestore
       .collection('Pruebas')
       .valueChanges()
-      .subscribe((res) => {
-        console.log('res -> ', res);
-      });
+      .subscribe(
+        (res) => {
+          console.log('res -> ', res);
+        },
+        (err) => console.log(err)
+      );
   }
 }
