@@ -44,7 +44,7 @@ export class RegisterPage implements OnInit {
       password: this.userCredentials.value.userPassword,
     };
     this.authService.register(userCredentialsObject);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/verification-email']);
   }
 
   async showAlert(header, message) {
