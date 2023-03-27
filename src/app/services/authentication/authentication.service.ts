@@ -6,12 +6,14 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private auth: Auth, private router: Router) {}
+  constructor(private auth: Auth, private router: Router,  public afAuth: AngularFireAuth) {}
 
   async sendVerificationEmail(): Promise<void> {
     return (await this.afAuth.currentUser).sendEmailVerification();

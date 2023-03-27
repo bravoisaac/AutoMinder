@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
@@ -10,9 +10,9 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
   providers: [AuthenticationService]
 })
 export class SendEmailComponent implements OnInit {
-  public user$:Observable<any>= this.authSvc.afAuth.user
+  public user$:Observable<any>= this.authService.afAuth.user
   
-  constructor(private authSvc: AuthService) { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit():  void{
 }
