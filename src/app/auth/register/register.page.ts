@@ -43,8 +43,16 @@ export class RegisterPage implements OnInit {
       email: this.userCredentials.value.userEmail,
       password: this.userCredentials.value.userPassword,
     };
-    this.authService.register(userCredentialsObject);
-    this.router.navigate(['/verification-email']);
+    const user = this.authService.register(userCredentialsObject);
+    if (user) {
+      this.showAlert('Ya creaste tu cuenta', 'Creación correctamente');
+      this.router.navigate(['/login']);
+    } else {
+      this.showAlert(
+        'Oh!, ha occurrido un error',
+        'Por favor, revisa tus datos y intentalo denuevo'
+      );
+    }
   }
 
   async showAlert(header, message) {
