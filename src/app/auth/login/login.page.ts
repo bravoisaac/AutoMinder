@@ -1,4 +1,4 @@
-import { AuthenticationService } from './../../services/authentication/authentication.service';
+import { AuthService } from './../../services/authentication/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,46 +15,26 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    private authService: AuthenticationService
+    private authService: AuthService,
+    private AuthenticationService: AuthService,
+    
   ) {}
 
-  // getEmail() {
-  //   return this.credentials.get('email');
-  // }
-  // getPassword() {
-  //   return this.credetials.get('password');
-  // }
-
-  ngOnInit() {
-    // this.credetials = this.fb.group({
-    //   email: ['', [Validators.required, Validators.email]],
-    //   password: ['', [Validators.required, Validators.minLength(6)]],
-    // });
+  credentials = {
+    correo: null,
+    password: null
   }
 
-  // async login() {
-  //   const loading = await this.loadingController.create();
-  //   await loading.present();
+  ngOnInit() {
+  }
 
-  //   const user = await this.authService.login(this.credentials.value);
-  //   await loading.dismiss();
-
-  //   if (user) {
-  //     this.router.navigate(['/tabs/tab1'], { replaceUrl: true });
-  //   } else {
-  //     this.showAlert(
-  //       'Inicio de sesion a fallado,',
-  //       'Por favor volver a intentar'
-  //     );
-  //   }
-  // }
-
-  // async showAlert(header, message) {
-  //   const alert = await this.alertController.create({
-  //     header,
-  //     message,
-  //     buttons: ['Ok'],
-  //   });
-  //   await alert.present();
-  // }
+  async login(){
+    console.log('credentials -> ', this.credentials)
+    const res = await this.AuthenticationService.login(this.credentials.correo, this.credentials.password).catch(error => {
+      console.log('error')
+    })
+    if (res) {
+      console.log('res -> ', res)
+    }
+  }
 }
