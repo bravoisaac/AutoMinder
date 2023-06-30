@@ -23,5 +23,10 @@ export class AuthService {
   logout() {
     this.authfirebase.signOut();
   }
+
+  // Change this function
+  register(user: any): any {
+    console.log('Te falto poner esta funcion para que no diera problemas al inciar la aplicacion sin ningun problema')
+  }
 }
 
