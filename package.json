@@ -1,8 +1,8 @@
 {
-  "name": "my-car",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "autominder",
+  "version": "0.0.2",
+  "author": "@IgnacioToledoDev",
+  "homepage": "https://www.github.com/IgnacioToledoDev",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,11 +20,11 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
-    "@capacitor/app": "4.1.0",
-    "@capacitor/core": "4.4.0",
-    "@capacitor/haptics": "4.0.1",
-    "@capacitor/keyboard": "4.0.1",
-    "@capacitor/status-bar": "4.0.1",
+    "@capacitor/app": "^4.1.0",
+    "@capacitor/core": "^4.4.0",
+    "@capacitor/haptics": "^4.0.1",
+    "@capacitor/keyboard": "^4.0.1",
+    "@capacitor/status-bar": "^4.0.1",
     "@ionic/angular": "^6.1.9",
     "@ionic/storage": "^3.0.6",
     "firebase": "^9.15.0",
@@ -70,5 +70,5 @@
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
   },
-  "description": "An Ionic project"
+  "description": "Autominder, app of lifecycle of spare of your car/s with reminders for change spare that finish its life"
 }
