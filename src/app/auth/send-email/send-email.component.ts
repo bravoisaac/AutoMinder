@@ -11,14 +11,9 @@ import { AuthService } from 'src/app/services/authentication/auth.service';
   providers: [AuthService]
 })
 export class SendEmailComponent implements OnInit {
-  public user$:Observable<any>= this.authService.authfirebase.user
-  
-  constructor(private authService: AuthService) { }
-  providers: [AuthenticationService],
-})
-export class SendEmailComponent implements OnInit {
-  public user: Observable<any> = this.authService.afAuth.user;
-  constructor(private authService: AuthenticationService) {}
+  // Problem here
+  // public user: Observable<any> = this.authService.afAuth.user;
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 

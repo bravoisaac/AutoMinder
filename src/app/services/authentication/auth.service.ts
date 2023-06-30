@@ -28,5 +28,10 @@ export class AuthService {
   register(user: any): any {
     console.log('Te falto poner esta funcion para que no diera problemas al inciar la aplicacion sin ningun problema')
   }
+
+  // Chanbe this function
+  sendVerificationEmail() {
+    console.log('Te falto poner esta funcion para que no diera problemas al inciar la aplicacion sin ningun problema')
+  }
 }
 
