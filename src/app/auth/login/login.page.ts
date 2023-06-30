@@ -34,6 +34,7 @@ export class LoginPage implements OnInit {
     console.log('credentials -> ', this.credentials)
     const res = await this.AuthenticationService.login(this.credentials.correo, this.credentials.password).catch(error => {
       console.log('error')
+      this.router.navigate(['/login'])
       this.interaction.closeLoading();
       this.interaction.presentToast('usuario o contraseña incorrecto')
     })

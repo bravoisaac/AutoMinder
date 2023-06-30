@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SendEmailComponent } from './send-email.component';
+import { SendEmailPage } from './send-email.page';
 
-describe('SendEmailComponent', () => {
-  let component: SendEmailComponent;
-  let fixture: ComponentFixture<SendEmailComponent>;
+describe('SendEmailPage', () => {
+  let component: SendEmailPage;
+  let fixture: ComponentFixture<SendEmailPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SendEmailComponent ],
+      declarations: [ SendEmailPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SendEmailComponent);
+    fixture = TestBed.createComponent(SendEmailPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

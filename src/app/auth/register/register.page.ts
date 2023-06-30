@@ -1,4 +1,4 @@
-import { Auth } from '@angular/fire/auth';
+import { Auth, User } from '@angular/fire/auth';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { AuthService } from './../../services/authentication/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -38,31 +38,9 @@ export class RegisterPage implements OnInit {
   getPrueba() {
     this.firestore.getCollection();
   }
-  registerNewUser() {
-    const userCredentialsObject = {
-      email: this.userCredentials.value.userEmail,
-      password: this.userCredentials.value.userPassword,
-    };
-    this.router.navigate(['/verification-email']);
 
-    const user = this.authService.register(userCredentialsObject);
-    if (user) {
-      this.showAlert('Ya creaste tu cuenta', 'Creación correctamente');
-      this.router.navigate(['/login']);
-    } else {
-      this.showAlert(
-        'Oh!, ha occurrido un error',
-        'Por favor, revisa tus datos y intentalo denuevo'
-      );
-    }
+  registrar() {
+    console.log('datos -> ', this.userCredentials)
   }
 
-  async showAlert(header, message) {
-    const alert = await this.alertController.create({
-      header,
-      message,
-      buttons: ['Ok'],
-    });
-    await alert.present();
-  }
 }
