@@ -1,6 +1,6 @@
 import { Auth } from '@angular/fire/auth';
 import { FirestoreService } from '../../services/firestore/firestore.service';
-import { AuthenticationService } from './../../services/authentication/authentication.service';
+import { AuthService } from './../../services/authentication/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import {
@@ -31,7 +31,7 @@ export class RegisterPage implements OnInit {
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    private authService: AuthenticationService
+    private authService: AuthService
   ) {}
   ngOnInit() {}
 
@@ -43,6 +43,8 @@ export class RegisterPage implements OnInit {
       email: this.userCredentials.value.userEmail,
       password: this.userCredentials.value.userPassword,
     };
+    this.router.navigate(['/verification-email']);
+
     const user = this.authService.register(userCredentialsObject);
     if (user) {
       this.showAlert('Ya creaste tu cuenta', 'Creación correctamente');

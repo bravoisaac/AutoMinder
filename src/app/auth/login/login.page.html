@@ -22,17 +22,17 @@
       <form #form="ngForm">
         <ion-item fill="solid">
           <ion-label position="floating">Correo electronico</ion-label>
-          <ion-input required type="email" name="mail" required clearInput inputmode="email"></ion-input>
+          <ion-input required type="email" [(ngModel)]="credentials.correo" name="mail" required clearInput inputmode="email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input required type="password" name="password" clearInput required></ion-input>
+          <ion-input required type="password" [(ngModel)]="credentials.password" name="password" clearInput required></ion-input>
         </ion-item>
         <div class="body">
           <ion-grid fixed>
             <ion-row>
               <ion-col size="12" class="ion-padding-top">
-                <ion-button color="primary" type="submit" class="ion-text-center ion-text-capitalize" expand="full"
+                <ion-button color="primary" type="submit" (click)="login()" class="ion-text-center ion-text-capitalize" expand="full"
                   [disabled]="form.invalid" routerLink="/tabs/tab1">
                   Iniciar sesión
                 </ion-button>
