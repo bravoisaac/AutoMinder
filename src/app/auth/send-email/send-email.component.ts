@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/authentication/auth.service';
   providers: [AuthService]
 })
 export class SendEmailComponent implements OnInit {
-  // Problem here
+  // PROBLEM: La propiedad 'afAuth' no existe en el tipo 'AuthService'.
   // public user: Observable<any> = this.authService.afAuth.user;
   constructor(private authService: AuthService) {}
 
